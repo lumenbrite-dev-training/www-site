@@ -6,7 +6,11 @@
         "component": "text",
         "valueType": "string",
         "name": "jcr:title",
-        "label": "Title"
+        "label": "Title",
+        "validation": {
+          "maxLength": 10,
+          "customErrorMsg": "You are error"
+        }
       },
       {
         "component": "text",
@@ -20,6 +24,14 @@
         "name": "keywords",
         "multi": true,
         "label": "Keywords"
+      },
+      {
+        "component": "aem-tag",
+        "label": "AEM Tag Picker",
+        "description": "Select an AEM tag",
+        "name": "tags",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags"
       }
     ]
   },
