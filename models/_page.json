@@ -22,6 +22,12 @@
         {
           "component": "text",
           "valueType": "string",
+          "name": "template",
+          "label": "Template"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
           "name": "keywords",
           "multi": true,
           "label": "Keywords"
