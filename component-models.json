@@ -31,7 +31,7 @@
       },
       {
         "component": "select",
-        "name": "classes",
+        "name": "theme",
         "value": "",
         "label": "Style options",
         "valueType": "string",
