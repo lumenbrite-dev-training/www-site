@@ -17,12 +17,13 @@ function createDisplay(contentfragment) {
   const cfDiv = document.createElement('div');
   console.log(contentfragment);
 
-  const links = contentfragment.data.pressReleaseList.items.map((pr) => {
+  const links = contentfragment.data.pressReleaseList.items.array.forEach((pr) => {
     const a = document.createElement('a');
     a.href = pr.slug;
     a.innerText = pr.title;
-    return a;
+    cfDiv.appendChild(a);
   });
+
   cfDiv.replaceChildren(links);
 
   return cfDiv;
