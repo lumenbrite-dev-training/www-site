@@ -24,7 +24,6 @@ function createDisplay(contentfragment) {
     cfDiv.appendChild(a);
   });
 
-  cfDiv.replaceChildren(links);
 
   return cfDiv;
 }
