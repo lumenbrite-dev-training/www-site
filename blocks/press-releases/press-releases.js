@@ -49,7 +49,7 @@ function createDisplay(contentfragment) {
 
     a.addEventListener('click', (e) => {
       e.preventDefault();
-      detailDiv.replaceChildren(loadFragment(e.target.href));
+      detailDiv.replaceChildren(loadFragment(pr._path));
     });
     listDiv.appendChild(a);
   });
