@@ -7,6 +7,20 @@ function showError(block, message) {
   block.innerHTML = `<div class="content-fragment-error">Error: ${message}</div>`;
 }
 
+function getAEMHost() {
+  let host;
+  if (window.location.hostname.endsWith('adobeaemcloud.com')) {
+    host = 'https://author-p156903-e1726641.adobeaemcloud.com';
+  } else {
+    host = 'https://publish-p156903-e1726641.adobeaemcloud.com';
+  }
+  // Remove trailing slash if present
+  if (host.endsWith('/')) {
+    host = host.slice(0, -1);
+  }
+  return host;
+}
+
 function createDisplay(contentfragment) {
   const cfDiv = document.createElement('div');
 
@@ -35,7 +49,7 @@ export default async function decorate(block) {
   }
 
   try {
-    const gqlUrl = 'https://author-p219104-e2263158.adobeaemcloud.com/graphql/execute.json/www-site/pr-by-path;path=/content/dam/www-site/release-2';
+    const gqlUrl = `${getAEMHost()}graphql/execute.json/www-site/pr-by-path;path=${cfPath}`;
 
     const response = await fetch(gqlUrl);
     const contentFragment = await response.json();
