@@ -17,7 +17,7 @@ function createDisplay(contentfragment) {
   const cfDiv = document.createElement('div');
   console.log(contentfragment);
 
-  const links = contentfragment.data.pressReleaseList.items.array.forEach((pr) => {
+  const links = contentfragment.data.pressReleaseList.items.forEach((pr) => {
     const a = document.createElement('a');
     a.href = pr.slug;
     a.innerText = pr.title;
