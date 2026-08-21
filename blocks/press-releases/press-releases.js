@@ -47,9 +47,10 @@ function createDisplay(contentfragment) {
     a.href = pr._path;
     a.innerText = pr.title;
 
-    a.addEventListener('click', (e) => {
+    a.addEventListener('click', async (e) => {
       e.preventDefault();
-      detailDiv.replaceChildren(loadFragment(pr._path));
+      // eslint-disable-next-line no-underscore-dangle
+      detailDiv.replaceChildren(await loadFragment(pr._path));
     });
     listDiv.appendChild(a);
   });
