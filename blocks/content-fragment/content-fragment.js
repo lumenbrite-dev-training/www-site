@@ -10,9 +10,10 @@ function showError(block, message) {
 function getAEMHost() {
   let host;
   if (window.location.hostname.endsWith('adobeaemcloud.com')) {
-    host = 'https://author-p156903-e1726641.adobeaemcloud.com';
+    host = 'https://author-p219104-e2263158.adobeaemcloud.com';
   } else {
-    host = 'https://publish-p156903-e1726641.adobeaemcloud.com';
+    host = 'https://publish-p219104-e2263158.adobeaemcloud.com';
+    // or actual public facing domain
   }
   // Remove trailing slash if present
   if (host.endsWith('/')) {
