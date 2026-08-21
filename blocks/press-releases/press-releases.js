@@ -13,8 +13,33 @@ function getAEMHost() {
   return host;
 }
 
+async function loadFragment(cfPath) {
+  const gqlUrl = `${getAEMHost()}/graphql/execute.json/www-site/pr-by-path;path=${cfPath}`;
+  const response = await fetch(gqlUrl);
+  const contentFragment = await response.json();
+  const cfDiv = document.createElement('div');
+
+  const prHeading = document.createElement('h1');
+  prHeading.innerHTML = contentFragment.data.pressReleaseByPath.item.title;
+
+  const prDate = document.createElement('p');
+  prDate.innerHTML = contentFragment.data.pressReleaseByPath.item.date;
+
+  const prContent = document.createElement('div');
+  prContent.innerHTML = contentFragment.data.pressReleaseByPath.item.content.plaintext;
+
+  cfDiv.appendChild(prHeading);
+  cfDiv.appendChild(prDate);
+  cfDiv.appendChild(prContent);
+
+  return cfDiv;
+}
+
 function createDisplay(contentfragment) {
   const cfDiv = document.createElement('div');
+
+  const listDiv = document.createElement('div');
+  const detailDiv = document.createElement('div');
 
   contentfragment.data.pressReleaseList.items.forEach((pr) => {
     const a = document.createElement('a');
@@ -24,10 +49,13 @@ function createDisplay(contentfragment) {
 
     a.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log(e.target.href);
+      detailDiv.replaceChildren(loadFragment(e.target.href));
     });
-    cfDiv.appendChild(a);
+    listDiv.appendChild(a);
   });
+
+  cfDiv.appendChild(listDiv);
+  cfDiv.appendChild(detailDiv);
 
   return cfDiv;
 }
