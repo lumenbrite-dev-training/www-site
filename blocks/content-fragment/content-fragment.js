@@ -16,7 +16,7 @@ export default async function decorate(block) {
   }
 
   try {
-    const gqlUrl = 'https://publish-p219104-e2263158.adobeaemcloud.com/graphql/execute.json/www-site/pr-by-path;path=/content/dam/www-site/release-2';
+    const gqlUrl = 'https://author-p219104-e2263158.adobeaemcloud.com/graphql/execute.json/www-site/pr-by-path;path=/content/dam/www-site/release-2';
 
     const response = fetch(gqlUrl);
     const contentFragment = await response.json();
