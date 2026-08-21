@@ -39,7 +39,9 @@ function createDisplay(contentfragment) {
   const cfDiv = document.createElement('div');
 
   const listDiv = document.createElement('div');
+  listDiv.classList.add('pr-list');
   const detailDiv = document.createElement('div');
+  listDiv.classList.add('pr-detail');
 
   contentfragment.data.pressReleaseList.items.forEach((pr) => {
     const a = document.createElement('a');
