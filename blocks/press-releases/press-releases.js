@@ -26,7 +26,7 @@ async function loadFragment(cfPath) {
   prDate.innerHTML = contentFragment.data.pressReleaseByPath.item.date;
 
   const prContent = document.createElement('div');
-  prContent.innerHTML = contentFragment.data.pressReleaseByPath.item.content.plaintext;
+  prContent.innerHTML = contentFragment.data.pressReleaseByPath.item.content.html;
 
   cfDiv.appendChild(prHeading);
   cfDiv.appendChild(prDate);
