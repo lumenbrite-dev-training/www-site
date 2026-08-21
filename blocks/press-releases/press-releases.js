@@ -15,15 +15,19 @@ function getAEMHost() {
 
 function createDisplay(contentfragment) {
   const cfDiv = document.createElement('div');
-  console.log(contentfragment);
 
-  const links = contentfragment.data.pressReleaseList.items.forEach((pr) => {
+  contentfragment.data.pressReleaseList.items.forEach((pr) => {
     const a = document.createElement('a');
-    a.href = pr.slug;
+    // eslint-disable-next-line no-underscore-dangle
+    a.href = pr._path;
     a.innerText = pr.title;
+
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(e.target.href);
+    });
     cfDiv.appendChild(a);
   });
-
 
   return cfDiv;
 }

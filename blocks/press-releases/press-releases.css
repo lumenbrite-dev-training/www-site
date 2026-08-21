@@ -1,3 +1,9 @@
 .press-releases {
     border: 1px solid black;
+
+
+    a {
+        display: block;
+        margin-bottom: 1.2em;
+    }
 }
