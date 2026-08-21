@@ -16,6 +16,15 @@ function getAEMHost() {
 function createDisplay(contentfragment) {
   const cfDiv = document.createElement('div');
   console.log(contentfragment);
+
+  const links = contentfragment.data.pressReleaseList.items.map((pr) => {
+    const a = document.createElement('a');
+    a.href = pr.slug;
+    a.innerText = pr.title;
+    return a;
+  });
+  cfDiv.replaceChildren(links);
+
   return cfDiv;
 }
 
