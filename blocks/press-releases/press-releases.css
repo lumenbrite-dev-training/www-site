@@ -1,0 +1,26 @@
+.press-releases {
+    border: 1px solid black;
+
+
+    a {
+        display: block;
+        margin-bottom: 1.2em;
+    }
+
+    & > div {
+        display: flex;
+        flex-direction: row;
+
+        .pr-list {
+            width: 30%;
+        }
+
+        .pr-detail {
+            width: 70%;
+
+            h1 {
+                margin-top: 0;
+            }
+        }
+    }
+}

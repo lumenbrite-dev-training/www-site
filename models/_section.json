@@ -52,7 +52,8 @@
         "columns",
         "fragment",
         "teaser",
-        "content-fragment"
+        "content-fragment",
+        "press-releases"
       ]
     }
   ]
