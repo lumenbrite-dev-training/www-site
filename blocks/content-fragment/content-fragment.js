@@ -1,5 +1,3 @@
-import content from "@adobe/aem-cli/src/content/content";
-
 function showEmpty(block) {
   const emptyMessage = 'No content fragment selected. Use the Universal Editor to select a content fragment.';
   block.innerHTML = `<div class="content-fragment-empty">${emptyMessage}</div>`;
