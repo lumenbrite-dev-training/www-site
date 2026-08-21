@@ -49,7 +49,7 @@ export default async function decorate(block) {
   }
 
   try {
-    const gqlUrl = `${getAEMHost()}graphql/execute.json/www-site/pr-by-path;path=${cfPath}`;
+    const gqlUrl = `${getAEMHost()}/graphql/execute.json/www-site/pr-by-path;path=${cfPath}`;
 
     const response = await fetch(gqlUrl);
     const contentFragment = await response.json();
