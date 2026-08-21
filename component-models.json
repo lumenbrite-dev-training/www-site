@@ -179,6 +179,21 @@
     ]
   },
   {
+    "id": "content-fragment",
+    "fields": [
+      {
+        "component": "aem-content-fragment",
+        "name": "path",
+        "value": "",
+        "label": "Content Fragment path",
+        "variationName": "contentFragmentVariation",
+        "validation": {
+          "rootPath": "/content/dam/www-site"
+        }
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
