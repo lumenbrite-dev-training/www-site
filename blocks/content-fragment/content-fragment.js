@@ -7,6 +7,25 @@ function showError(block, message) {
   block.innerHTML = `<div class="content-fragment-error">Error: ${message}</div>`;
 }
 
+function createDisplay(contentfragment) {
+  const cfDiv = document.createElement('div');
+
+  const prHeading = document.createElement('h1');
+  prHeading.innerHTML = contentfragment.data.pressReleaseByPath.item.title;
+
+  const prDate = document.createElement('p');
+  prDate.innerHTML = contentfragment.data.pressReleaseByPath.item.date;
+
+  const prContent = document.createElement('div');
+  prContent.innerHTML = contentfragment.data.pressReleaseByPath.item.content.plaintext;
+
+  cfDiv.appendChild(prHeading);
+  cfDiv.appendChild(prDate);
+  cfDiv.appendChild(prContent);
+
+  return cfDiv;
+}
+
 export default async function decorate(block) {
   // Get the content fragment path from the UE generated content in the DOM
   const cfPath = block.querySelector('a')?.textContent;
@@ -23,16 +42,7 @@ export default async function decorate(block) {
     if (!contentFragment) {
       showError(block, 'Content fragment not found');
     }
-    console.log(contentFragment);
-    /*
-    Because the content fragment is a reference property,
-      we can rewrite the entire block with the content fragment data
-    Caution with doing this with default content and inferred elements
-      since UE it renders the block with special aue attributes
-    Learn more about inferred elements here:
-      https://www.aem.live/developer/component-model-definitions#creating-semantic-content-models-for-blocks
-    */
-    // block.innerHTML = createDisplay(contentFragment);
+    block.replaceChildren(createDisplay(contentFragment));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Content Fragment block error:', error);
